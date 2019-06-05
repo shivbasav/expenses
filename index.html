@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <title>Your Expenses</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <style>
+                body {margin:0; background-color: #c3c3c3 }
+                
+                .header-bar{
+                    width: 250vh;
+                    background-color: #ffffff; 
+                }
+
+                .icon-bar {
+                  width: 90px;
+                  background-color: #ffffff;
+                }
+                
+                .icon-bar a {
+                  display: block;
+                  text-align: center;
+                  padding: 16px;
+                  transition: all 0.3s ease;
+                  color: white;
+                  font-size: 36px;
+                }
+                
+                .icon-bar a:hover {
+                  background-color: #000;
+                }
+                
+                .active {
+                  background-color: #000;
+                }
+
+               .card {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    max-width: 200px;
+                    margin: auto;
+                    text-align: center;
+                    font-family: arial;
+                    background-color: #ffffff;
+                    color: grey
+                    
+                }
+
+                .price {
+                    color: #b8b8c0;
+                    font-size: 22px;
+                }
+                .column {
+                     float: right;
+                     width: 20%;
+                }
+
+                table {
+                     border-collapse: separate;
+                     border-spacing: 0;
+                     color: #cecfd5;
+                     font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+                }
+
+                th,
+                td {
+                    padding: 15px 20px;
+                    vertical-align: middle;
+                }
+
+                thead {
+                     background: #cecfd5;
+                     background: linear-gradient(grey, #ffffff);
+                     color: #000;
+                     font-size: 11px;
+                     text-transform: uppercase;
+                }
+
+                th:first-child {
+                     border-top-left-radius: 5px;
+                     text-align: left;
+            
+                }
+                th:last-child {
+                     border-top-right-radius: 5px;
+                }
+
+
+                td {
+                    border-bottom: 1px solid #cecfd5;
+                    border-right: 1px solid #cecfd5;
+                    background-color: #ffffff
+                }
+                td:first-child {
+                     border-left: 1px solid #cecfd5;
+                }
+                .BillName{
+                     color: gray;
+                }
+                .bill-paidby,
+                .date,
+                .Submission,
+                .amount,
+                .verify,
+                .status {
+                    text-align: center;
+                    background-color: #ffffff;
+                    color: grey
+                }
+
+                .fa-home {
+                color: grey;
+                }
+                .fa-copy {
+                color: grey;
+                }
+                .fa-layer-group {
+                color: grey;
+                }
+                .fa-user-friends {
+                color: grey;
+                }
+                .fa-comments{
+                    color: gray;
+                }
+                .fa-envelope{
+                    color: gray;
+                }
+                .fa-chart-line{
+                    color: gray;
+                }
+                @import "https://fonts.googleapis.com/css?family=Raleway";
+* { box-sizing: border-box; }
+
+h1{ margin: 0; }
+#addbills { 
+  -webkit-user-select: none; /* Chrome/Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  margin: 4em auto;
+  width: 100px; 
+  height: 30px; 
+  line-height: 30px;
+  background: teal;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid white;
+}
+
+#addbills:hover { background: #666; }
+#addbills:active { background: #444; }
+
+#Form { 
+  display: none;
+
+  border: 6px solid salmon; 
+  padding: 2em;
+  width: 400px;
+  text-align: center;
+  background: #fff;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%)
+  
+}
+
+input, textarea { 
+  margin: .8em auto;
+  font-family: inherit; 
+  text-transform: inherit; 
+  font-size: inherit;
+  display: block; 
+  width: 280px; 
+  padding: .4em;
+}
+textarea { height: 80px; resize: none; }
+
+.formBtn { 
+  width: 140px;
+  display: inline-block;
+  background: teal;
+  color: #fff;
+  font-weight: 100;
+  font-size: 1.2em;
+  border: none;
+  height: 30px;
+}
+        </style>          
+    </head>
+    <body>
+        <header class="header-bar">
+            <div>
+                    <img src="https://uploads-ssl.webflow.com/5b031d96275ea2a7d62b46f4/5b5edd552461b35da45d1189_Chase.png" alt="logo" width="120" style="margin: 0"/>
+                    
+            </div>
+        </header>
+        <div>
+        <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <h2>Rs.6000</h2>
+                        <p>Total 10 bills reccived in totoal</p>
+                        <a href="#"class="price"><small>See breakup</small></a>
+                    </div>
+                </div>
+                <div class="column">
+                        <div class="card">
+                                <h2>Rs.6000</h2>
+                                <p>Total 10 bills reccived in totoal</p>
+                                <a href="#"class="price"><small>See breakup</small></a>
+                      </div>
+                </div>
+                <div class="column">
+                        <div class="card">
+                                <h2>Rs.6000</h2>
+                                <p>Total 10 bills reccived in totoal</p>
+                                <a href="#"class="price"><small>See breakup</small></a>
+                      </div>
+                </div>
+                <div class="column">
+                        <div class="card">
+                                <h2>Rs.6000</h2>
+                                <p>Total 10 bills reccived in totoal</p>
+                                <a href="#"class="price"><small>See breakup</small></a>
+                      </div>
+                </div>    
+            </div>
+        </div>
+      <div class="text-example">
+      </div>
+      
+        <div>
+                <div class="icon-bar">
+                        <a class="active" href="#"><i class="fa fa-home"></i></a> 
+                        <a href="#"><i class="far fa-copy"></i></a> 
+                        <a href="#"><i class="fas fa-layer-group"></i></a> 
+                        <a href="#"><i class="fas fa-user-friends"></i></a>
+                        <a href="#"><i class="fas fa-comments"></i></a>
+                        <a href="#"><i class="far fa-envelope"></i></a>
+                        <a href="#"><i class="fas fa-chart-line"></i></a>
+                      </div>
+        </div> 
+
+        <div style="margin-left: 50vh">
+                <div id="addbills">Add bills</div>
+                <div id="Form">
+                    <h1>Add Your Bills</h1>
+                    <small>Submit you Extra expenses/Bill for Reimbersement</small>
+                    <form action="#">
+                        <input placeholder="Bill Name" type="text" required/>
+                        <input placeholder="Bill Type" type="text" required/>
+                        <input placeholder="Amount" type="number" required/>
+                        <input placeholder="Date of Bill" type="date" required/>
+                        <input placeholder="Attach your Bills" type="file"/>
+                        <input class="formBtn" type="submit"/>
+                        <input class="formBtn" type="reset"/>
+                    </form> 
+                    <script>
+                        $(function() {
+          
+          // contact form animations
+          $('#addbills').click(function() {
+            $('#Form').fadeToggle();
+          })
+          $(document).mouseup(function (e) {
+            var container = $("#Form");
+        
+            if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                container.fadeOut();
+            }
+          });
+          
+        });
+                    </script>
+               </div>
+        
+                <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="4">Bill Name</th>
+                                <th scope="col">Paid By</th>
+                                <th scope="col">Date of bill</th>
+                                <th scope="col">Date of submission</th>
+                                <th scope="col">Amount(Rs)</th>
+                                <th scope="col">Verified Status</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4"><strong class="BillName">Team lunch at Starbucks</strong>
+                                </td>
+                                <td class="bill-paidby">Cash</td>
+                                <td class="date">10 Oct 2018</td>
+                                <td class="Submission">10 Oct 2018</td>
+                                <td class="amount">3390.47</td>
+                                <td class="verify"><i class="fab fa-font-awesome-flag"></i></td>
+                                <td class="status">Complete</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <strong class="BillName">Team lunch at Starbucks</strong>
+                                    </td>
+                                    <td class="bill-paidby">Cash</td>
+                                    <td class="date">10 Oct 2018</td>
+                                    <td class="Submission">10 Oct 2018</td>
+                                    <td class="amount">3390.47</td>
+                                    <td class="verify"><i class="fab fa-font-awesome-flag"></i></td>
+                                    <td class="status">Complete</td>
+                                </tr>
+                            <tr>
+                                <td colspan="4">
+                                <strong class="BillName">Team lunch at Starbucks</strong>
+                                </td>
+                                <td class="bill-paidby">Cash</td>
+                                <td class="date">10 Oct 2018</td>
+                                <td class="Submission">10 Oct 2018</td>
+                                <td class="amount">3390.47</td>
+                                <td class="verify"><i class="fab fa-font-awesome-flag"></i></td>
+                                <td class="status">Complete</td>
+                           </tr>
+                           <tr>
+                                 <td colspan="4">
+                                 <strong class="BillName">Team lunch at Starbucks</strong></td>
+                                 <td class="bill-paidby">Cash</td>
+                                 <td class="date">10 Oct 2018</td>
+                                 <td class="Submission">10 Oct 2018</td>
+                                 <td class="amount">3390.47</td>
+                                 <td class="verify"><i class="fab fa-font-awesome-flag"></i></td>
+                                 <td class="status">Complete</td>
+                            </tr>
+                            <tr>
+                                 <td colspan="4">
+                                 <strong class="BillName">Team lunch at Starbucks</strong></td>
+                                 <td class="bill-paidby">Cash</td>
+                                 <td class="date">10 Oct 2018</td>
+                                 <td class="Submission">10 Oct 2018</td>
+                                 <td class="amount">3390.47</td>
+                                 <td class="verify"><i class="fab fa-font-awesome-flag"></i></td>
+                                 <td class="status">Complete</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+        </div>              
+    </body>
+</html>
